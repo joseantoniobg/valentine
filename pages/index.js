@@ -155,7 +155,7 @@ export default function Home() {
           {particles}
         </div>
         <span className={styles.counter1}>Feliz {counter} segundos de Namoro!</span>
-        {randomPhotos.map(photo => <Photo {...photo}/>)}
+        {randomPhotos.map(photo => <Photo key={photo.key} {...photo}/>)}
         {/* <Photo photoName="1.png" alt="Our first photo together" top={50} left={150} deg={-20} delay={2} duration={10} /> */}
       </main>
     </div>
