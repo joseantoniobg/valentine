@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@600&display=swap');
+
+.main {
+  height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, rgba(226,38,38,1) 51%, rgba(164,28,28,1) 96%);
+  position: relative;
+  overflow: hidden;
+}
+
+.backSpider {
+  background: url(../public/back.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  opacity: .1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.counter1 {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 46pt;
+  font-family: 'Fira Sans', sans-serif;
+  color: #fff;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgb(27, 25, 185);
+  animation-name: moveDown;
+  animation-duration:  10s;
+  animation-delay: 45s;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes appear {
+  from {opacity: 0; }
+  to { opacity: .2; }
+}
+
+@keyframes moveDown {
+  from { top: -100px }
+  to { top: 48% }
+}

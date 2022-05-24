@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@keyframes moveDown {
+  from { top: -700px }
+  to { top: calc(100% + 700px) }
+}

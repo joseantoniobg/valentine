@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.photo {
+  border: 13px solid #2B3784;
+  position: absolute;
+  top: -800px;
+  box-shadow: 10px 10px 20px rgba(0,0,0,.2);
+  transition: all 1s;
+
+   .subtitle {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    font-size: 22pt;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    z-index: 100;
+    bottom: 25px;
+    background: rgba(#fff, .45);
+    color: rgb(0, 0, 0);
+    transition: all 1s;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .subtitle {
+      height: auto;
+      padding: 1rem;
+    }
+  }
+}
