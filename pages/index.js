@@ -145,7 +145,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Tr3s Meses</title>
         <meta name="description" content="A next project to celebrate 3 months of our relationship. I love U, Leo" />
         <link rel="icon" href="/icon.png" />
       </Head>
