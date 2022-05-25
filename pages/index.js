@@ -3,7 +3,8 @@ import React from 'react';
 import Photo from '../components/photo';
 import styles from '../styles/Home.module.scss'
 import { getRandomInt } from '../util/util';
-import NetParticles from '../components/Particles';
+import NetParticles from '../components/NetParticles';
+import ConfettiParticles from '../components/ConfettiParticles';
 
 export default function Home() {
 
@@ -14,6 +15,7 @@ export default function Home() {
   const [counter, setCounter] = React.useState(Math.round(diff / 1000));
   const [randomPhotos, setRandomPhotos] = React.useState([]);
   const [particles, setParticles] = React.useState();
+  const [confettiParticles, setConfettiParticles] = React.useState();
 
   // React.useEffect(() => {
   //   width = window.innerWidth;
@@ -65,6 +67,7 @@ export default function Home() {
     setRandomPhotos(randomPhotos);
 
     setParticles(<NetParticles />)
+    //setConfettiParticles(<ConfettiParticles />)
 
   }, []);
 
@@ -73,6 +76,12 @@ export default function Home() {
         setCounter(counter + 1)
     }, 1000);
   }, [counter])
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setConfettiParticles(<ConfettiParticles />)
+    }, 50000);
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -86,9 +95,9 @@ export default function Home() {
         <div className={styles.backSpider}>
           {particles}
         </div>
+        <div className={styles.confettiParticles}>{confettiParticles}</div>
         <span className={styles.counter1}>Feliz {counter} segundos de Namoro!</span>
         {randomPhotos.map((photo, index) => <Photo key={photo.key} {...photo}/>)}
-        {/* <Photo photoName="1.png" alt="Our first photo together" top={50} left={150} deg={-20} delay={2} duration={10} /> */}
       </main>
     </div>
   )
