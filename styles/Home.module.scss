@@ -16,6 +16,7 @@
   background: url(../public/back.png);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   width: 100%;
   height: 100vh;
   opacity: .1;
@@ -26,7 +27,7 @@
 
 .counter1 {
   position: absolute;
-  top: -100px;
+  top: -500px;
   left: 0;
   width: 100%;
   text-align: center;

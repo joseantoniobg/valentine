@@ -1,11 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import React, { useState } from 'react';
+import React from 'react';
 import Photo from '../components/photo';
 import styles from '../styles/Home.module.scss'
 import { getRandomInt } from '../util/util';
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import NetParticles from '../components/Particles';
 
 export default function Home() {
 
@@ -17,7 +15,13 @@ export default function Home() {
   const [randomPhotos, setRandomPhotos] = React.useState([]);
   const [particles, setParticles] = React.useState();
 
+  // React.useEffect(() => {
+  //   width = window.innerWidth;
+  // }, []);
+
   React.useEffect(() => {
+
+    const width = window.innerWidth;
 
     const photos = [];
 
@@ -44,12 +48,14 @@ export default function Home() {
                        'Me orgulho muito de você',
                        'Beijos e abraços quentinhos de urso 🐻'];
 
+    console.log(width)
+
     const randomPhotos = photos.map((num, index) => ({
                                                       key: index,
                                                       subtitle: subtitles[index],
                                                       photoName: `${num}.png`,
                                                       size: getRandomInt(400, 600),
-                                                      left: getRandomInt(index % 2 === 0 ? 300 : 1050, index % 2 === 0 ? 450 : 1250),
+                                                      left: getRandomInt(index % 2 === 0 || width < 900 ? 10 : 55, width < 900 ? 12 : index % 2 === 0 ? 16 : 67),
                                                       alt: '',
                                                       duration: getRandomInt(10, 13),
                                                       delay: (index + 1) * 3,
@@ -58,77 +64,7 @@ export default function Home() {
 
     setRandomPhotos(randomPhotos);
 
-    setParticles(<Particles
-      id="tsparticles"
-      init={particlesInit}
-      options={{
-        fpsLimit: 120,
-        interactivity: {
-          events: {
-            onClick: {
-              enable: true,
-              mode: "push",
-            },
-            onHover: {
-              enable: true,
-              mode: "repulse",
-            },
-            resize: true,
-          },
-          modes: {
-            push: {
-              quantity: 4,
-            },
-            repulse: {
-              distance: 200,
-              duration: 0.4,
-            },
-          },
-        },
-        particles: {
-          color: {
-            value: "#ffffff",
-          },
-          links: {
-            color: "#ffffff",
-            distance: 150,
-            enable: true,
-            opacity: 0.9,
-            width: 1,
-          },
-          collisions: {
-            enable: true,
-          },
-          move: {
-            direction: "none",
-            enable: true,
-            outModes: {
-              default: "bounce",
-            },
-            random: false,
-            speed: 6,
-            straight: false,
-          },
-          number: {
-            density: {
-              enable: true,
-              area: 800,
-            },
-            value: 80,
-          },
-          opacity: {
-            value: 0.8,
-          },
-          shape: {
-            type: "circle",
-          },
-          size: {
-            value: { min: 1, max: 5 },
-          },
-        },
-        detectRetina: true,
-      }}
-    />)
+    setParticles(<NetParticles />)
 
   }, []);
 
@@ -137,10 +73,6 @@ export default function Home() {
         setCounter(counter + 1)
     }, 1000);
   }, [counter])
-
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
 
   return (
     <div className={styles.container}>
@@ -155,7 +87,7 @@ export default function Home() {
           {particles}
         </div>
         <span className={styles.counter1}>Feliz {counter} segundos de Namoro!</span>
-        {randomPhotos.map(photo => <Photo key={photo.key} {...photo}/>)}
+        {randomPhotos.map((photo, index) => <Photo key={photo.key} {...photo}/>)}
         {/* <Photo photoName="1.png" alt="Our first photo together" top={50} left={150} deg={-20} delay={2} duration={10} /> */}
       </main>
     </div>
