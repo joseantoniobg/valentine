@@ -38,13 +38,9 @@
   -webkit-text-stroke-color: rgb(27, 25, 185);
   animation-name: moveDown;
   animation-duration:  10s;
-  animation-delay: 45s;
+  animation-delay: 80s;
   animation-fill-mode: forwards;
   animation-timing-function: linear;
-}
-
-.confettiParticles {
-  //animation: appearTotally 0.1s 50s forwards;
 }
 
 @keyframes appear {

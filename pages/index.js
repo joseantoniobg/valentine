@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React from 'react';
-import Photo from '../components/photo';
+import Photo from '../components/Photo';
 import styles from '../styles/Home.module.scss'
 import { getRandomInt } from '../util/util';
 import NetParticles from '../components/NetParticles';
@@ -59,15 +59,14 @@ export default function Home() {
                                                       size: getRandomInt(400, 600),
                                                       left: getRandomInt(index % 2 === 0 || width < 900 ? 10 : 55, width < 900 ? 12 : index % 2 === 0 ? 16 : 67),
                                                       alt: '',
-                                                      duration: getRandomInt(10, 13),
-                                                      delay: (index + 1) * 3,
+                                                      duration: getRandomInt(13, 16),
+                                                      delay: (index + 1) * 5,
                                                       deg: getRandomInt(-25, 25)
                                                     }));
 
     setRandomPhotos(randomPhotos);
 
     setParticles(<NetParticles />)
-    //setConfettiParticles(<ConfettiParticles />)
 
   }, []);
 
@@ -80,7 +79,7 @@ export default function Home() {
   React.useEffect(() => {
     setTimeout(() => {
       setConfettiParticles(<ConfettiParticles />)
-    }, 50000);
+    }, 87000);
   }, [])
 
   return (
