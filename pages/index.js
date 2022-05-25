@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React from 'react';
-import Photo from '../components/Photo';
+import Photo from '../components/photo';
 import styles from '../styles/Home.module.scss'
 import { getRandomInt } from '../util/util';
 import NetParticles from '../components/NetParticles';
@@ -16,10 +16,6 @@ export default function Home() {
   const [randomPhotos, setRandomPhotos] = React.useState([]);
   const [particles, setParticles] = React.useState();
   const [confettiParticles, setConfettiParticles] = React.useState();
-
-  // React.useEffect(() => {
-  //   width = window.innerWidth;
-  // }, []);
 
   React.useEffect(() => {
 
@@ -49,8 +45,6 @@ export default function Home() {
                        'Vocé é I N C R Í V E L',
                        'Me orgulho muito de você',
                        'Beijos e abraços quentinhos de urso 🐻'];
-
-    console.log(width)
 
     const randomPhotos = photos.map((num, index) => ({
                                                       key: index,
